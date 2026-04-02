@@ -1,0 +1,236 @@
+##############################################################################
+# StableNet Developer Docs Audit — Evaluation Schema
+# Gate 1: 이 파일이 확정되어야 모든 Phase 실행 가능
+#
+# schema_version 규칙:
+#   - Maroo 파일럿 후 변경 시 bump (1.0 → 1.1)
+#   - 각 output JSON에 이 버전 기록
+##############################################################################
+
+schema_version: "1.0"
+
+metadata:
+  required_fields:
+    - competitor         # 경쟁사명
+    - docs_url           # 분석한 docs URL
+    - type               # stablecoin_infra | distribution | rwa_chain | compliance_platform | defi_protocol | stablechain
+    - analyzed_at        # ISO 8601
+    - schema_version     # 이 스키마 버전
+    - agent_confidence   # 전체 분석 신뢰도 (0.0-1.0)
+
+# ── Axis 1: Developer Onboarding (Primary ICP) ──────────────
+# weight: 0.35
+axis_1_developer_onboarding:
+  weight: 0.35
+  metrics:
+    time_to_first_tx:
+      description: "Quickstart로 첫 TX까지 시간/난이도"
+      scoring:
+        0: "가이드 없음"
+        1: "텍스트만, 코드 없음"
+        2: "코드 포함이나 불완전"
+        3: "완전한 가이드, 따라하면 동작"
+        4: "잘 구조화 + 소요시간 명시"
+        5: "5분 내 첫 TX, 원클릭/복붙"
+    evm_tooling_support:
+      description: "Hardhat, Foundry, Remix 등 가이드"
+      scoring:
+        0: "EVM 툴링 언급 없음"
+        1: "RPC URL만"
+        2: "1개 툴 가이드"
+        3: "2개+ 툴 + 설정 파일"
+        4: "주요 툴 모두 + 트러블슈팅"
+        5: "모든 주요 툴 + 프로젝트 템플릿"
+    code_examples:
+      description: "복붙 가능한 코드, 예제 repo"
+      scoring:
+        0: "코드 예제 없음"
+        1: "인라인 코드 1-2개"
+        2: "섹션별 코드 예제"
+        3: "실행 가능한 완전한 코드"
+        4: "GitHub 예제 repo"
+        5: "예제 repo + 라이브 데모"
+    testnet_accessibility:
+      description: "Faucet, Testnet RPC, Explorer"
+      scoring:
+        0: "테스트넷 정보 없음"
+        1: "존재 언급만"
+        2: "RPC + Chain ID"
+        3: "Faucet + RPC + Chain ID 문서화"
+        4: "위 + Explorer + 네트워크 추가 가이드"
+        5: "원클릭 추가 + 자동 Faucet + Explorer 통합"
+    sdk_api_quality:
+      description: "SDK 문서화, API reference"
+      scoring:
+        0: "SDK/API 문서 없음"
+        1: "엔드포인트 목록만"
+        2: "기본 API reference"
+        3: "SDK + API ref + 인증 가이드"
+        4: "위 + 코드 예제 + 에러 코드"
+        5: "인터랙티브 playground + 다중 언어 SDK"
+
+# ── Axis 2: Institutional Confidence (Secondary ICP) ─────────
+# weight: 0.15 (규제 미확정, 향후 별도 프로젝트)
+axis_2_institutional_confidence:
+  weight: 0.15
+  metrics:
+    compliance_docs:
+      description: "KYC/AML, 라이선스, 규제 문서"
+      scoring:
+        0: "컴플라이언스 언급 없음"
+        1: "일반적 언급"
+        2: "KYC/AML 개요 페이지"
+        3: "구체적 규제 프레임워크"
+        4: "규제 가이드 + 감사 보고서"
+        5: "완전한 컴플라이언스 허브"
+    governance_transparency:
+      description: "발행/소각, 준비금, 의사결정"
+      scoring:
+        0: "거버넌스 정보 없음"
+        1: "개요만"
+        2: "발행/소각 메커니즘"
+        3: "준비금 증명 + 프로세스"
+        4: "실시간 준비금 + 투명성 보고서"
+        5: "온체인 거버넌스 + 투표 기록"
+    security_audits:
+      description: "보안 감사, 버그바운티"
+      scoring:
+        0: "보안 정보 없음"
+        1: "일반 언급"
+        2: "감사 보고서 1개+ 공개"
+        3: "복수 감사 + 요약"
+        4: "위 + 버그바운티"
+        5: "지속 감사 + 버그바운티 + 인시던트 대응"
+    sla_uptime:
+      description: "SLA, 상태 페이지"
+      scoring:
+        0: "SLA 정보 없음"
+        1: "업타임 언급만"
+        2: "상태 페이지 존재"
+        3: "SLA 수치 + 상태 페이지"
+        4: "위 + 히스토리컬 데이터"
+        5: "SLA 보장 + 실시간 모니터링 + 포스트모템"
+    enterprise_integration:
+      description: "B2B API, 결제/정산 연동"
+      scoring:
+        0: "엔터프라이즈 문서 없음"
+        1: "B2B 사례 언급만"
+        2: "기본 API 연동 가이드"
+        3: "시나리오별 가이드"
+        4: "위 + 샌드박스 + 파트너 온보딩"
+        5: "완전한 엔터프라이즈 허브"
+
+# ── Axis 3: Stablecoin-Specific Depth ────────────────────────
+# weight: 0.25
+axis_3_stablecoin_depth:
+  weight: 0.25
+  metrics:
+    minting_redeeming:
+      description: "발행/환매 프로세스"
+      scoring:
+        0: "문서 없음"
+        1: "개념만"
+        2: "프로세스 플로우"
+        3: "API/컨트랙트 가이드"
+        4: "위 + 코드 + 수수료"
+        5: "E2E 튜토리얼 + 엣지 케이스 + 한도"
+    reserve_transparency:
+      description: "준비자산, 실시간 증명"
+      scoring:
+        0: "준비금 정보 없음"
+        1: "담보 유형 언급만"
+        2: "준비금 구성 설명"
+        3: "정기 증명 보고서"
+        4: "실시간/일간 데이터"
+        5: "온체인 증명 + 감사 + 대시보드"
+    cross_chain:
+      description: "브릿지, 멀티체인"
+      scoring:
+        0: "정보 없음"
+        1: "지원 체인 목록만"
+        2: "브릿지 사용법"
+        3: "개발자용 연동 가이드"
+        4: "위 + 컨트랙트 주소 + 수수료"
+        5: "프로그래매틱 API + SDK + 모니터링"
+    krw_specific:
+      description: "KRW 특화 (N/A 허용)"
+      scoring:
+        0: "KRW 정보 없음"
+        1: "KRW 지원 언급만"
+        2: "KRW 페어 사용법"
+        3: "KRW 온/오프램프"
+        4: "위 + 한국 규제 + 파트너"
+        5: "완전한 KRW 허브"
+      note: "KRW 무관 경쟁사는 N/A, 점수 제외"
+    payment_use_cases:
+      description: "결제, 송금, 정산"
+      scoring:
+        0: "사용 사례 없음"
+        1: "결제 가능성 언급만"
+        2: "기본 플로우"
+        3: "시나리오별 가이드"
+        4: "위 + 코드 + 수수료 비교"
+        5: "프로덕션 결제 SDK + 사례 연구"
+
+# ── Axis 4: Docs Quality (UX) ────────────────────────────────
+# weight: 0.25
+axis_4_docs_quality:
+  weight: 0.25
+  metrics:
+    information_architecture:
+      description: "네비게이션, 구조"
+      scoring:
+        0: "구조 없음"
+        1: "기본 카테고리"
+        2: "논리적 섹션 + 사이드바"
+        3: "일관된 IA + 브레드크럼"
+        4: "위 + 역할별 경로"
+        5: "완벽한 IA + 프로그레시브 디스클로저"
+    search_discoverability:
+      description: "검색, SEO"
+      scoring:
+        0: "검색 없음"
+        1: "기본 검색"
+        2: "검색 + 필터"
+        3: "풀텍스트 + 자동완성"
+        4: "위 + SEO 최적화"
+        5: "AI 검색 + 추천"
+    freshness:
+      description: "업데이트, 변경 로그"
+      scoring:
+        0: "날짜 없음"
+        1: "일부 페이지 날짜"
+        2: "대부분 최종 수정일"
+        3: "변경 로그/릴리즈 노트"
+        4: "위 + API 버저닝 + 마이그레이션"
+        5: "자동 변경 로그 + RSS + 버전별 문서"
+    localization:
+      description: "다국어 (특히 한국어)"
+      scoring:
+        0: "단일 언어"
+        1: "2개 언어 (부분)"
+        2: "2개+ 주요 페이지"
+        3: "한국어 + 스위처"
+        4: "위 + 로컬라이즈 코드/용어"
+        5: "완전 다국어 + 현지화 튜토리얼"
+    interactive_elements:
+      description: "API playground, 인터랙티브"
+      scoring:
+        0: "정적 텍스트만"
+        1: "코드 하이라이팅"
+        2: "복사 + 탭 전환"
+        3: "인라인 실행 또는 API 테스터"
+        4: "위 + 인터랙티브 튜토리얼"
+        5: "풀 IDE / 브라우저 개발 환경"
+
+# ── Qualitative Fields ───────────────────────────────────────
+qualitative:
+  strengths:
+    description: "docs 강점 (3-5개)"
+    type: "string[]"
+  weaknesses:
+    description: "docs 약점 (3-5개)"
+    type: "string[]"
+  steal_worthy:
+    description: "StableNet이 즉시 벤치마킹할 것 (1-3개, 구체적 페이지/기능)"
+    type: "string[]"

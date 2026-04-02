@@ -1,0 +1,62 @@
+# StableNet Developer Docs Audit — Competitors Configuration
+# 9개 경쟁사 + StableNet 자체 (Phase 1용)
+
+stablenet:
+  name: "StableNet"
+  docs_url: "https://docs.stablenet.network"
+  type: "stablechain"
+
+competitors:
+  - name: "maroo"
+    display_name: "Maroo"
+    docs_url: "https://docs.maroo.io"
+    type: "stablecoin_infra"
+    note: "KRW 스테이블코인 직접 경쟁. 파일럿 대상."
+
+  - name: "paxos"
+    display_name: "Paxos"
+    docs_url: "https://docs.paxos.com"
+    type: "stablecoin_infra"
+    note: "규제 중심 발행 인프라"
+
+  - name: "m0"
+    display_name: "M0"
+    docs_url: "https://docs.m0.org"
+    type: "stablecoin_infra"
+    note: "프로토콜 레벨 스테이블코인"
+
+  - name: "circle"
+    display_name: "Circle Arc"
+    docs_url: "https://developers.circle.com"
+    type: "distribution"
+    note: "파트너 온보딩, API 구조"
+
+  - name: "stable"
+    display_name: "Stable.xyz"
+    docs_url: "https://docs.stable.xyz"
+    type: "stablechain"
+    note: "USDT 네이티브 L1. 가장 직접적인 경쟁사."
+
+  - name: "plume"
+    display_name: "Plume"
+    docs_url: "https://docs.plumenetwork.xyz"
+    type: "rwa_chain"
+    note: "RWA 특화 L2"
+
+  - name: "tokeny"
+    display_name: "Tokeny"
+    docs_url: "https://docs.tokeny.com"
+    type: "compliance_platform"
+    note: "규제 토큰화 플랫폼"
+
+  - name: "frax"
+    display_name: "Frax"
+    docs_url: "https://docs.frax.finance"
+    type: "defi_protocol"
+    note: "스테이블코인+DeFi 통합"
+
+  - name: "tether"
+    display_name: "Tether"
+    docs_url: "https://docs.tether.to"
+    type: "stablecoin_infra"
+    note: "USDT 발행사 개발자 리소스"
