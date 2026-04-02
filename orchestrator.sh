@@ -16,7 +16,7 @@ SYSTEM_PROMPT="prompts/system.md"
 PHASE1_PROMPT="prompts/phase1_self_audit.md"
 PHASE2_TEMPLATE="prompts/phase2_competitor.md"
 PHASE3_PROMPT="prompts/phase3_synthesis.md"
-MIN_THRESHOLD=5
+MIN_THRESHOLD=5  # 5/8 competitors minimum for Phase 3
 
 log() { echo "[$(date '+%H:%M:%S')] $*"; }
 err() { echo "[$(date '+%H:%M:%S')] ❌ $*" >&2; }

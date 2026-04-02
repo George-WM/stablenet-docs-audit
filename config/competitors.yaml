@@ -9,9 +9,9 @@ stablenet:
 competitors:
   - name: "maroo"
     display_name: "Maroo"
-    docs_url: "https://docs.maroo.io"
+    docs_url: "https://litepaper.maroo.io/"
     type: "stablecoin_infra"
-    note: "KRW 스테이블코인 직접 경쟁. 파일럿 대상."
+    note: "KRW 스테이블코인 직접 경쟁. 파일럿 대상. Litepaper만 존재."
 
   - name: "paxos"
     display_name: "Paxos"
@@ -27,7 +27,7 @@ competitors:
 
   - name: "circle"
     display_name: "Circle Arc"
-    docs_url: "https://developers.circle.com"
+    docs_url: "https://docs.arc.network/arc/concepts/welcome-to-arc"
     type: "distribution"
     note: "파트너 온보딩, API 구조"
 
@@ -55,8 +55,4 @@ competitors:
     type: "defi_protocol"
     note: "스테이블코인+DeFi 통합"
 
-  - name: "tether"
-    display_name: "Tether"
-    docs_url: "https://docs.tether.to"
-    type: "stablecoin_infra"
-    note: "USDT 발행사 개발자 리소스"
+# Tether 제거: docs 접근 불가 + 발행사 관점이라 Developer Docs 비교 가치 낮음
