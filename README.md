@@ -2,6 +2,17 @@
 
 StableNet Developer Docs의 현재 상태를 진단하고, 9개 경쟁사와 ICP 기반 비교 분석을 수행하여 개선 로드맵을 수립합니다.
 
+## 실행 현황
+
+| 기간 | 단계 | 상태 |
+|------|------|------|
+| Week 1–2 | P1 Quick Wins (P1.1~P1.4) | ✅ 완료 (2026-04-10) |
+| Week 3–4 | P1 핵심 개발자 콘텐츠 (P1.5~P1.6) | 진행 예정 |
+| Week 5–8 | P2 깊이 & 기관 대응 | 대기 |
+| Week 9–12 | P3 전략 & 폴리시 | 대기 |
+
+---
+
 ## Prerequisites
 
 - **Claude Code CLI** (`claude` command available)

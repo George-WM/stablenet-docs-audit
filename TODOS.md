@@ -1,5 +1,21 @@
 # TODOS — StableNet Docs Audit
 
+## Docs Content Execution
+
+### Week 1–2: P1 Quick Wins ✅ 완료 (2026-04-10)
+
+- [x] **P1.1** — 테스트넷 네트워크 상세 페이지 신설 (`/en/getting-started/testnet-network-details`)
+- [x] **P1.2** — Changelog 페이지 신설 (`/en/changelog`)
+- [x] **P1.3** — JSON-RPC API 레퍼런스 페이지 신설 (`/en/api-reference/json-rpc`)
+- [x] **P1.4** — Quick Start 허브 페이지 신설 (`/en/getting-started/index`)
+
+### Week 3–4: P1 핵심 개발자 콘텐츠 (진행 예정)
+
+- [ ] **P1.5** — 개발자 퀵스타트: "첫 WKRC 결제 컨트랙트 배포" (Foundry 기반)
+- [ ] **P1.6** — EVM 호환성 레퍼런스 페이지
+
+---
+
 ## GATE 1 (Must complete before any execution)
 
 - [ ] `schema/evaluation.yaml` 생성 (4개 축, 가중치, 지표 목록, confidence scoring, schema_version: "1.0")
