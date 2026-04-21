@@ -14,6 +14,14 @@
 - [ ] **P1.5** — 개발자 퀵스타트: "첫 WKRC 결제 컨트랙트 배포" (Foundry 기반)
 - [ ] **P1.6** — EVM 호환성 레퍼런스 페이지
 
+### Week 5–8: P2 깊이 & IA 재구성 ✅ 완료 (2026-04-21)
+
+- [x] **P2.1** — Hardhat 가이드
+- [x] **P2.2** — SDK 가이드
+- [x] **P2.3** — Troubleshooting
+- [x] **P2.4** — Examples repo
+- [x] **IA 재구성** — StableNet / Build / Reference / Help 탭 구조
+
 ---
 
 ## GATE 1 (Must complete before any execution)
